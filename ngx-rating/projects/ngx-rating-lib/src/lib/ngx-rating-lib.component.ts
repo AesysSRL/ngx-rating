@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
-import { getColorScale } from './color-generator';
-import { Item, Settings } from './model';
+import { getColorScale, toColorString } from './color-generator';
+import { Color, Item, Settings } from './model';
 
 @Component({
   selector: 'ngx-rating-lib',
@@ -65,7 +65,8 @@ export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
 
   ngOnInit(): void {
     this.items = this.settings?.items || [];
-    this.color = getColorScale(this.items.length);
+    this.items = getColorScale(this.items);
+    this.color = this.items.map(item => toColorString(item.color || {} as Color));
   }
 
   writeValue(item: Item): void {
@@ -103,11 +104,10 @@ export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
   }
 
   getScaleItemChange(indexSelected: number, item: Item){
-    const index = this.items.indexOf(item);
-    if (this.actualSelection !== index) {
-
-      this.actualSelection = index;
-      this.showSelection = index;
+    
+    if (this.actualSelection !== indexSelected) {
+      this.actualSelection = indexSelected;
+      this.showSelection = indexSelected;
       this.actualDescription = item.description;
       this.showDescriptionBS.next(item.description);
       this.onChange(item);

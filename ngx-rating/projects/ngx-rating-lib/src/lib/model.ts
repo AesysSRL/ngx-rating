@@ -1,10 +1,15 @@
 export interface Item {
   id: number,
-  name: string,
-  description: string
+  description: string,
+  color?: Color
 }
 
 export interface Settings {
   items: Item[],
-  selected?: Item
+}
+
+export interface Color {
+  red: number,
+  green: number,
+  blue: number
 }
