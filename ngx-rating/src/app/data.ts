@@ -35,7 +35,9 @@ export const simpleSettings = {
   itemDetail: {
     width: 70,
     height: 8
-  }
+  },
+  showTitle: true,
+  titlePosition: 'top'
 }
 
 export const rainbowSettings = {
@@ -106,7 +108,9 @@ export const rainbowSettings = {
   itemDetail: {
     width: 50,
     height: 50
-  }
+  },
+  showTitle: true,
+  titlePosition: 'right'
 }
 
 export const facesSettings = {
@@ -115,9 +119,9 @@ export const facesSettings = {
       id: 1,
       description: 'I AM NOT HAPPY',
       color: {
-        red: 180,
-        green: 230,
-        blue: 245
+        red: 255,
+        green: 246,
+        blue: 7
       }
     },
     {
@@ -136,9 +140,9 @@ export const facesSettings = {
       id: 5,
       description: 'I AM REALLY HAPPY',
       color: {
-        red: 0,
-        green: 90,
-        blue: 141
+        red: 255,
+        green: 7,
+        blue: 36
       }
     },
   ],
@@ -147,5 +151,7 @@ export const facesSettings = {
   itemDetail: {
     width: 50,
     height: 50
-  }
+  },
+  showTitle: true,
+  titlePosition: 'bottom'
 }
