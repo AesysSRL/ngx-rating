@@ -6,6 +6,9 @@ export interface Item {
 
 export interface Settings {
   items: Item[],
+  theme: string,
+  images?: string[],
+  itemDetail: ItemDetail
 }
 
 export interface Color {
@@ -13,3 +16,9 @@ export interface Color {
   green: number,
   blue: number
 }
+
+export interface ItemDetail {
+  width: number,
+  height: number
+}
+

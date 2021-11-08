@@ -1,6 +1,17 @@
+import { ReturnStatement } from "@angular/compiler";
 import { Color, Item } from "./model";
 
 export function getColorScale(items: Item[]): Item[] {
+
+  if(!checkIntegrity(items)){
+    console.error("ALL RGB VALUES MUST BE BETWEEN 0 AND 255");
+    return items.map(item => {
+      return {
+        ...item,
+        color: getColor(255, 0, 0)
+      }
+    });
+  }
 
   if(!items[0].color) {
     console.error("SET FIRST ITEM'S COLOR FIELD");
@@ -54,4 +65,31 @@ function calculateColors(first: Color, last: Color, items: Item[]): Item[] {
 
 export function toColorString(color: Color): string {
   return `rgb(${color.red},${color.green},${color.blue})`;
+}
+
+function checkIntegrity(items: Item[]): boolean {
+  let integrity = true;
+  items.forEach(item => {
+    if(item.color) {
+      if(!checkItem(item.color)) {
+        integrity = false;
+      }
+    }
+  });
+
+  return integrity;
+}
+
+function checkItem(color: Color): boolean {
+  if(color.red < 0 || color.red > 255){
+    return false;
+  }
+  if(color.green < 0 || color.green > 255){
+    return false;
+  }
+  if(color.blue < 0 || color.blue > 255){
+    return false;
+  }
+
+  return true;
 }

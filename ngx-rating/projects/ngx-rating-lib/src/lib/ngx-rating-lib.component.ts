@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { getColorScale, toColorString } from './color-generator';
-import { Color, Item, Settings } from './model';
+import { Color, Item, ItemDetail, Settings } from './model';
 
 @Component({
   selector: 'ngx-rating-lib',
@@ -11,14 +11,87 @@ import { Color, Item, Settings } from './model';
       {{showDescription$ | async}}
     </div>
     <div class="container-scale" *ngIf="settings">
-        <ng-container *ngFor="let item of settings.items; let idx = index">
-          <div class="item"
-          (mouseover)="mouseOver(idx, item)"
-          (mouseleave)="mouseLeave()"
-          (click)="getScaleItemChange(idx, item)"
-          [ngStyle]="{'background-color': (idx <= showSelection) ? color[idx] : ''}"
-        >
-        </div>
+        <ng-container *ngFor="let item of items; let idx = index">
+          <div [ngSwitch]="theme">
+            <div class="item"
+            *ngSwitchCase="'squares'"     
+            (mouseover)="mouseOver(idx, item)"
+            (mouseleave)="mouseLeave()"
+            (click)="getScaleItemChange(idx, item)"
+            style="
+              width: {{details.width}}px;
+              height: {{details.height}}px;  
+            "
+            [ngStyle]="{'background-color': (idx <= showSelection) ? color[idx] : ''}"
+            >
+            </div>
+
+            <div class="item"
+            *ngSwitchCase="'rounded_squares'"     
+            (mouseover)="mouseOver(idx, item)"
+            (mouseleave)="mouseLeave()"
+            (click)="getScaleItemChange(idx, item)"
+            style="
+              width: {{details.width}}px;
+              height: {{details.height}}px;  
+            "
+            [ngStyle]="{
+              'background-color': (idx <= showSelection) ? color[idx] : '', 
+              'border-radius': idx === 0 ? '8px 0 0 8px' : idx === items.length-1 ? '0 8px 8px 0' : ''}"
+            >
+            </div>
+
+            <div 
+            *ngSwitchCase="'single_icon'"
+            (mouseover)="mouseOver(idx, item)"
+            (mouseleave)="mouseLeave()"
+            (click)="getScaleItemChange(idx, item)"
+            >
+              <div
+              *ngIf="images"
+              style="
+                mask: url({{images[0]}});
+                height: {{details.height}}px; 
+                width: {{details.width}}px;
+                -webkit-mask: url({{images[0]}}) no-repeat center;"
+              [ngStyle]="{'background-color': (idx <= showSelection) ? color[idx] : 'grey'}"
+              >
+
+              </div>
+            </div>
+
+            <div
+            *ngSwitchCase="'multiple-icons'"     
+            (mouseover)="mouseOver(idx, item)"
+            (mouseleave)="mouseLeave()"
+            (click)="getScaleItemChange(idx, item)"
+            >
+              <div
+                *ngIf="images"
+                
+              >
+                <div *ngIf="idx <= showSelection; else falseItems"
+                style="
+                  mask: url({{images[0]}});
+                  height: {{details.height}}px; 
+                  width: {{details.width}}px;
+                  -webkit-mask: url({{images[0]}}) no-repeat center;
+                  background-color: {{color[idx]}}"
+                >
+                </div>
+                <ng-template #falseItems>
+                  <div style="
+                    mask: url({{images[1]}});
+                    height: {{details.height}}px; 
+                    width: {{details.width}}px;
+                    -webkit-mask: url({{images[1]}}) no-repeat center;
+                    background-color: grey"
+                  >
+                  </div>
+                </ng-template>
+              </div>              
+            </div>
+          </div>
         </ng-container>
       </div>
   `,
@@ -29,8 +102,6 @@ import { Color, Item, Settings } from './model';
         margin-left: 30.4%;
     }
     .item{
-        width: 70px;
-        height: 8px;
         margin-right: 10px;
         background-color: grey;
     }
@@ -47,7 +118,11 @@ import { Color, Item, Settings } from './model';
 export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
 
   @Input() settings?: Settings;
+
   items: Item[] = []
+  theme: string = 'squares';
+  images?: string[];
+  details: ItemDetail = {} as ItemDetail;
 
   showDescriptionBS = new BehaviorSubject<string>('-');
   showDescription$ = this.showDescriptionBS.asObservable();
@@ -67,6 +142,9 @@ export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
     this.items = this.settings?.items || [];
     this.items = getColorScale(this.items);
     this.color = this.items.map(item => toColorString(item.color || {} as Color));
+    this.theme = this.settings?.theme || 'squares';
+    this.images = this.settings?.images;
+    this.details = this.settings?.itemDetail || {} as ItemDetail;
   }
 
   writeValue(item: Item): void {

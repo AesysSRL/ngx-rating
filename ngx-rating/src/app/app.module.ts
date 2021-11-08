@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxRatingLibModule } from 'projects/ngx-rating-lib/src/public-api';
 import { AppComponent } from './app.component';
 
-
 @NgModule({
   declarations: [
     AppComponent
