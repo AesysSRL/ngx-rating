@@ -29,6 +29,99 @@ To set up your rating bar, just give it a settings Object and an Angular FormCon
 | showTitle     | yes       | boolean    |
 | titlePosition | no        | string     |
 
+Here is an example of a simple Settings Object:
+
+```javascript
+let mysettings = {
+  items: [
+    {
+      id: 1,
+      description: 'ITEM 1 DESCRIPTION',
+      color: {
+        red: 180,
+        green: 230,
+        blue: 245
+      }
+    },
+    {
+      id: 2,
+      description: 'ITEM 2 DESCRIPTION'
+    },
+    {
+      id: 3,
+      description: 'ITEM 3 DESCRIPTION',
+    },
+    {
+      id: 4,
+      description: 'ITEM 4 DESCRIPTION',
+    },
+    {
+      id: 5,
+      description: 'ITEM 5 DESCRIPTION',
+      color: {
+        red: 0,
+        green: 90,
+        blue: 141
+      }
+    },
+  ],
+  theme: 'rounded_squares',
+  itemDetail: {
+    width: 70,
+    height: 8
+  },
+  showTitle: true,
+  titlePosition: 'top'
+}
+```
+
+In the next example, you can see how to set up a rating bar with multiple_icons theme:
+
+```javascript
+let mySettings = {
+  items: [
+    {
+      id: 1,
+      description: 'I AM NOT HAPPY',
+      color: {
+        red: 255,
+        green: 246,
+        blue: 7
+      }
+    },
+    {
+      id: 2,
+      description: 'I AM NORMAL'
+    },
+    {
+      id: 3,
+      description: 'I AM HAPPY',
+    },
+    {
+      id: 4,
+      description: 'I AM VERY HAPPY',
+    },
+    {
+      id: 5,
+      description: 'I AM REALLY HAPPY',
+      color: {
+        red: 255,
+        green: 7,
+        blue: 36
+      }
+    },
+  ],
+  theme: 'multiple_icons',
+  images: ['../assets/happy.svg', '../assets/sad.svg'],
+  itemDetail: {
+    width: 50,
+    height: 50
+  },
+  showTitle: true,
+  titlePosition: 'bottom'
+}
+```
+
 ### Displayed Items format
 
 Items displayed on the bar must have this fields: 
