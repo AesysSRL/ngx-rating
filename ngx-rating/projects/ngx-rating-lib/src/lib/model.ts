@@ -3,7 +3,7 @@ export interface Settings {
   theme: string,
   itemDetail: ItemDetail,
   showTitle: boolean,
-  titlePosition: string
+  titlePosition?: string
 }
 
 export interface SettingsImage extends Settings {

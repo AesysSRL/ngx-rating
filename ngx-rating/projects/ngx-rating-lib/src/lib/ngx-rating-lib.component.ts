@@ -74,7 +74,7 @@ export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
       this.images = (<SettingsImage>this.settings).images;
     }
     this.showTitle = this.settings.showTitle;
-    this.titlePosition = this.settings.titlePosition;
+    this.titlePosition = this.settings.titlePosition || 'top';
     this.details = this.settings.itemDetail;
   }
 
@@ -113,7 +113,7 @@ export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
   }
 
   getScaleItemChange(indexSelected: number, item: Item){
-    
+
     if (this.actualSelection !== indexSelected) {
       this.actualSelection = indexSelected;
       this.showSelection = indexSelected;
