@@ -33,7 +33,7 @@ To set up your rating bar, just give it a settings Object and an Angular FormCon
 
 Items displayed on the bar must have this fields: 
 
-```json
+```
 {
   id: number,
   description: string,
@@ -79,7 +79,7 @@ If multiple items have the color field, the color of the other items would be ca
 Bar items dimensions has to be declared in itemDetail field.
 Fill it with an object of this type:
 
-```json
+```
 {
   width: number,
   height: number
@@ -127,3 +127,13 @@ If first item is missing the color field, all items'color will be overwritten wi
 ### Title position
 
 Title position is managed directly into HTML using flex-direction property and adding margin based on needings.
+
+---
+
+##### Author:
+
+  Giovanni Della Pelle
+
+  Nora Vallo
+
+  Manuel Midiri
