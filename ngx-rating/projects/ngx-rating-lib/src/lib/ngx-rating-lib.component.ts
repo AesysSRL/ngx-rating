@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { getColorScale, toColorString } from './color-generator';
-import { Color, Item, ItemDetail, Settings } from './model';
+import { Color, Item, ItemDetail, Settings, SettingsImage } from './model';
 
 @Component({
   selector: 'ngx-rating-lib',
@@ -36,14 +36,16 @@ import { Color, Item, ItemDetail, Settings } from './model';
 })
 export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
 
-  @Input() settings?: Settings;
+  @Input() settings!: Settings;
 
   items: Item[] = []
   theme: string = 'squares';
-  images?: string[];
-  details: ItemDetail = {} as ItemDetail;
+  images!: string[];
+  styles: string[] = [];
   showTitle: boolean = false;
   titlePosition: string = 'top';
+  details: ItemDetail = {} as ItemDetail;
+  style: string[] = [];
 
   showDescriptionBS = new BehaviorSubject<string>('-');
   showDescription$ = this.showDescriptionBS.asObservable();
@@ -60,14 +62,16 @@ export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
   constructor() {}
 
   ngOnInit(): void {
-    this.items = this.settings?.items || [];
+    this.items = this.settings.items || [];
     this.items = getColorScale(this.items);
     this.color = this.items.map(item => toColorString(item.color || {} as Color));
-    this.theme = this.settings?.theme || 'squares';
-    this.images = this.settings?.images;
-    this.details = this.settings?.itemDetail || {} as ItemDetail;
-    this.showTitle = this.settings?.showTitle || false;
-    this.titlePosition = this.settings?.titlePosition || '';
+    this.theme = this.settings.theme || 'squares';
+    if('images' in this.settings) {
+      this.images = (<SettingsImage>this.settings).images;
+    }
+    this.showTitle = this.settings.showTitle;
+    this.titlePosition = this.settings.titlePosition;
+    this.details = this.settings.itemDetail;
   }
 
   writeValue(item: Item): void {
@@ -114,5 +118,4 @@ export class NgxRatingLibComponent implements OnInit, ControlValueAccessor  {
       this.onChange(item);
     }
   }
-
 }

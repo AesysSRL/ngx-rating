@@ -31,7 +31,7 @@ export const simpleSettings = {
       }
     },
   ],
-  theme: 'rounded_squares',
+  theme: 'squares',
   itemDetail: {
     width: 70,
     height: 8
@@ -146,7 +146,7 @@ export const facesSettings = {
       }
     },
   ],
-  theme: 'multiple-icons',
+  theme: 'multiple_icons',
   images: ['../assets/icons/sentiment_satisfied_alt_black_24dp.svg', '../assets/icons/sentiment_dissatisfied_black_24dp.svg'],
   itemDetail: {
     width: 50,
