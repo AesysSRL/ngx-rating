@@ -1,8 +1,15 @@
 <div class="rating-container"
     [ngStyle]="{'flex-direction': (titlePosition === 'top') ? 'column' : (titlePosition === 'left') ? 'row' : (titlePosition === 'right') ? 'row-reverse' : 'column-reverse'}"
 >
-    <div *ngIf="showTitle"
-        [ngStyle]="{'margin': titlePosition === 'top' ? '0 0 20px 0' : titlePosition === 'bottom' ? '20px 0 0 0' : ''}"
+    <div 
+        class="title"
+        *ngIf="showTitle"
+        [ngStyle]="{
+            'margin': titlePosition === 'top' ? '0 0 20px 0' : 
+                    titlePosition === 'bottom' ? '20px 0 0 0' : 
+                    titlePosition === 'left' ? '0 20px 0 0' : 
+                    titlePosition === 'right' ? '0 0 0 20px' : ''
+        }"
     >
         {{showDescription$ | async}}
     </div>

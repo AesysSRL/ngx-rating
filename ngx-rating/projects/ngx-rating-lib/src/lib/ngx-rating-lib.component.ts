@@ -9,20 +9,24 @@ import { Color, Item, ItemDetail, Settings, SettingsImage } from './model';
   templateUrl: './ngx-rating-lib.component.html',
   styles: [
     `
-    .container-scale {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-    }
-    .item{
-        margin-right: 10px;
-    }
     .rating-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 10vh
+    }
+
+    .title {
+      text-transform: lowercase;
+    }
+
+    .container-scale {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .item{
+        margin-right: 10px;
     }
     `
   ],

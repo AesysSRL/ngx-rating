@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   });
 
   rainbowControl = new FormControl({
-    id: 3,
-    description: 'ITEM 3 DESCRIPTION',
+    id: 10,
+    description: 'ITEM 10 DESCRIPTION',
   });
 
   facesControl = new FormControl({

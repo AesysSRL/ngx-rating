@@ -31,7 +31,7 @@ export const simpleSettings = {
       }
     },
   ],
-  theme: 'squares',
+  theme: 'rounded_squares',
   itemDetail: {
     width: 70,
     height: 8
@@ -74,11 +74,11 @@ export const rainbowSettings = {
     },
     {
       id: 6,
-      description: 'ITEM 5 DESCRIPTION',
+      description: 'ITEM 6 DESCRIPTION',
     },
     {
       id: 7,
-      description: 'ITEM 5 DESCRIPTION',
+      description: 'ITEM 7 DESCRIPTION',
       color: {
         red: 1,
         green: 151,
@@ -87,15 +87,15 @@ export const rainbowSettings = {
     },
     {
       id: 8,
-      description: 'ITEM 5 DESCRIPTION',
+      description: 'ITEM 8 DESCRIPTION',
     },
     {
       id: 9,
-      description: 'ITEM 5 DESCRIPTION',
+      description: 'ITEM 9 DESCRIPTION',
     },
     {
       id: 10,
-      description: 'ITEM 5 DESCRIPTION',
+      description: 'ITEM 10 DESCRIPTION',
       color: {
         red: 230,
         green: 1,
