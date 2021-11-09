@@ -5,6 +5,8 @@
 This component is built having in mind flexibility and simplicity, our goal is to let yourself having the rating bar you want with no effort.
 It is fully usable with Angular Reactive Forms, so it's easy to track user actions and modify displayed value at runtime.
 
+![Preview](/ngx-rating/assets/preview.gif)
+
 ## Usage
 
 To set up your rating bar, just give it a settings Object and an Angular FormControl
@@ -53,22 +55,22 @@ If multiple items have the color field, the color of the other items would be ca
 
 ### Themes
 
-- squares:
-
-    Image
+- squares
 
 - rounded_squares:
 
-    Image
+    ![Rounded Squares](/ngx-rating/assets/rounded-squares.gif)
 
 - single_icon:
 
-    Image
+    ![Single Icon](/ngx-rating/assets/simple-icon.gif)
+
     When choosing Single Icon theme, you have to fill images field with an array containing local path of the SVG image you want to display.
 
 - multiple_icons:
 
-    Image
+    ![Multiple Icons](/ngx-rating/assets/multiple-icons.gif)
+    
     When choosing Multiple Icons theme, you have to fill images field with an array containing local paths of SVG images you want to display.
     First one has to be the one used for selected items, second one for unselected items.  
 
