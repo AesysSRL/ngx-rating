@@ -1,2 +1,0 @@
-# ng-rating
-Angular rating
