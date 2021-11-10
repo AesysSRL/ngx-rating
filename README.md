@@ -230,3 +230,6 @@ Title position is managed directly into HTML using flex-direction property and a
   Nora Vallo
 
   Manuel Midiri
+=======
+# ngx-rating
+Angular rating
