@@ -1,0 +1,29 @@
+<div class="title">
+  <h1 class="title-demo">NGX-RATING</h1>
+  <p>The ultimate rating bar for Angular Apps</p>
+</div>
+
+<div class="container-rating">
+<h3>Simple rating bar with the title on top</h3>
+<ngx-rating
+[settings]="simpleSettings"
+[formControl]="simplecontrol"
+></ngx-rating>
+</div>
+
+<div class="container-rating">
+<h3>You can use your own SVGs as bar items</h3>
+<p>Personalize single items' colors</p>
+<ngx-rating
+[settings]="rainbowSettings"
+[formControl]="rainbowControl"
+></ngx-rating>
+</div>
+
+<div class="container-rating">
+<h3>Use different SVGs for checked and unchecked items</h3>
+<ngx-rating
+[settings]="facesSettings"
+[formControl]="facesControl"
+></ngx-rating>
+</div>
