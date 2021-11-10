@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgxRatingComponent } from './ngx-rating.component';
 
 
@@ -8,6 +9,7 @@ import { NgxRatingComponent } from './ngx-rating.component';
     NgxRatingComponent
   ],
   imports: [
+    BrowserModule
   ],
   exports: [
     NgxRatingComponent
