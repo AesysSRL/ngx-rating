@@ -38,6 +38,4 @@ export class AppComponent implements OnInit {
     this.facesControl.valueChanges.subscribe(x => console.log('faces changes', x))
 
   }
-
-
 }

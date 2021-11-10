@@ -12,10 +12,10 @@ It is fully usable with Angular Reactive Forms, so it's easy to track user actio
 To set up your rating bar, just give it a settings Object and an Angular FormControl
 
 ```
-<ngx-rating-lib
+<ngx-rating
   [settings]="mySettings"
   [formControl]="myFormControl"
-></ngx-rating-lib>
+></ngx-rating>
 ```
 
 ### Settings Object
