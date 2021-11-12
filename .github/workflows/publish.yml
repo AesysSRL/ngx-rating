@@ -38,6 +38,9 @@ jobs:
       - name: Run ng build with npx
         run: npx ng build
         
+      - name: Run npm pack
+        run: npm pack
+        
       #- name: Build library
       #  run: ng build
         
