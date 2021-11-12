@@ -23,26 +23,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Browse folders
-        run: cd ./projects/ngx-rating
-      
       - name: Install dependencies
-        run: echo N | npm ci
-        
-      #- name: Install dependencies
-      #  run: npm install
-        
-      - name: Set organization scope
-        run: npm config set scope aesys
-        
+        run: npm install
+
       - name: Run ng build with npx
-        run: npx ng build
-        
-      - name: Run npm pack
+        run: npx ng build ngx-rating
+
+      - name: Generate registry access file
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ./.npmrc
+
+      - name: Browse to library folder
+        run: cd ./projects/ngx-rating
+
+      - name: Generate tarball
         run: npm pack
-        
-      #- name: Build library
-      #  run: ng build
         
       - name: Publish on npm
         run: npm publish --access public
