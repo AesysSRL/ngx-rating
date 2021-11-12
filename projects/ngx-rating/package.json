@@ -7,5 +7,19 @@
   },
   "dependencies": {
     "tslib": "^2.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AesysSRL/ngx-rating.git"
+  },
+  "author": "Aesys",
+  "homepage": "https://github.com/AesysSRL/ngx-rating#readme",
+  "keywords": [
+    "rating",
+    "Angular",
+    "ngx-rating",
+    "ng"
+  ],
+  "description": "Angular Library for creating RATING elements.",
+  "license": "MIT"
 }
