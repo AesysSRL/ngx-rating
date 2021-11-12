@@ -32,14 +32,13 @@ jobs:
       - name: Generate registry access file
         run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ./.npmrc
 
-      - name: Browse to library folder
-        run: cd ./dist/ngx-rating
-
       - name: Generate tarball
         run: npm pack
+        working-directory: ./dist/ngx-rating
         
       - name: Publish on npm
         run: npm publish --access public
+        working-directory: ./dist/ngx-rating
         env:
           NPM_TOKEN: ${{secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
           
