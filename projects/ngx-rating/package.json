@@ -1,5 +1,5 @@
 {
-  "name": "ngx-rating",
+  "name": "@aesys/ngx-rating",
   "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^12.0.5",
