@@ -33,7 +33,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ./.npmrc
 
       - name: Browse to library folder
-        run: cd ./projects/ngx-rating
+        run: cd ./dist/ngx-rating
 
       - name: Generate tarball
         run: npm pack
