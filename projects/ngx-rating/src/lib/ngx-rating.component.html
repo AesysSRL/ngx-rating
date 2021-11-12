@@ -1,0 +1,102 @@
+<div class="rating-container"
+    [ngStyle]="{'flex-direction': (titlePosition === 'top') ? 'column' : (titlePosition === 'left') ? 'row' : (titlePosition === 'right') ? 'row-reverse' : 'column-reverse'}"
+>
+    <div
+        class="title"
+        *ngIf="showTitle"
+        [ngStyle]="{
+            'margin': titlePosition === 'top' ? '0 0 20px 0' :
+                    titlePosition === 'bottom' ? '20px 0 0 0' :
+                    titlePosition === 'left' ? '0 20px 0 0' :
+                    titlePosition === 'right' ? '0 0 0 20px' : ''
+        }"
+    >
+        {{showDescription$ | async}}
+    </div>
+    <div class="container-scale" *ngIf="settings">
+        <ng-container *ngFor="let item of items; let idx = index">
+            <div [ngSwitch]="theme">
+                <div class="item"
+                    *ngSwitchCase="'squares'"
+                    (mouseover)="mouseOver(idx, item)"
+                    (mouseleave)="mouseLeave()"
+                    (click)="getScaleItemChange(idx, item)"
+                    [style.width.px]="details.width"
+                    [style.height.px]="details.height"
+                    [ngStyle]="{'background-color': (idx <= showSelection) ? color[idx] : 'grey'}"
+                >
+                </div>
+                <div class="item"
+                    *ngSwitchCase="'rounded_squares'"
+                    (mouseover)="mouseOver(idx, item)"
+                    (mouseleave)="mouseLeave()"
+                    (click)="getScaleItemChange(idx, item)"
+                    [style.width.px]="details.width"
+                    [style.height.px]="details.height"
+                    [ngStyle]="{
+                        'background-color': (idx <= showSelection) ? color[idx] : 'grey',
+                        'border-radius': idx === 0 ? '8px 0 0 8px' : idx === items.length-1 ? '0 8px 8px 0' : ''}"
+                >
+                </div>
+
+                <div
+                    *ngSwitchCase="'single_icon'"
+                    (mouseover)="mouseOver(idx, item)"
+                    (mouseleave)="mouseLeave()"
+                    (click)="getScaleItemChange(idx, item)"
+                >
+                    <div
+                        *ngIf="images"
+                        class="item"
+                        [style.width.px]="details.width"
+                        [style.height.px]="details.height"
+                        [style.mask.url]="images[0]"
+                        style="
+                            mask-size: {{details.width}}px {{details.height}}px;
+                            -webkit-mask: url({{images[0]}}) no-repeat center;
+                            -webkit-mask-size: {{details.width}}px {{details.height}}px"
+                        [ngStyle]="{'background-color': (idx <= showSelection) ? color[idx] : 'grey'}"
+                    >
+                    </div>
+                </div>
+
+                <div
+                    *ngSwitchCase="'multiple_icons'"
+                    (mouseover)="mouseOver(idx, item)"
+                    (mouseleave)="mouseLeave()"
+                    (click)="getScaleItemChange(idx, item)"
+                >
+                    <div
+                        *ngIf="images"
+                        class="item"
+                    >
+                        <div *ngIf="idx <= showSelection; else falseItems"
+                            [style.width.px]="details.width"
+                            [style.height.px]="details.height"
+                            [style.backgroundColor]="color[idx]"
+                            style="
+                                mask: url({{images[0]}});
+                                mask-size: {{details.width}}px {{details.height}}px;
+                                -webkit-mask: url({{images[0]}}) no-repeat center;
+                                -webkit-mask-size: {{details.width}}px {{details.height}}px;"
+                        >
+                        </div>
+                        <ng-template #falseItems>
+                            <div
+                                [style.width.px]="details.width"
+                                [style.height.px]="details.height"
+                                [style.backgroundColor]="'grey'"
+                                style="
+                                    mask: url({{images[1]}});
+                                    mask-size: {{details.width}}px {{details.height}}px;
+                                    -webkit-mask: url({{images[1]}}) no-repeat center;
+                                    -webkit-mask-size: {{details.width}}px {{details.height}}px;"
+                            >
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

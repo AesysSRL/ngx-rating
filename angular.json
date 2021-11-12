@@ -1,0 +1,140 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "528aeaf1-f8cf-47c4-964a-2d4f8febe285"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-rating": {
+      "projectType": "library",
+      "root": "projects/ngx-rating",
+      "sourceRoot": "projects/ngx-rating/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-rating/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-rating/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-rating/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-rating/src/test.ts",
+            "tsConfig": "projects/ngx-rating/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-rating/karma.conf.js"
+          }
+        }
+      }
+    },
+    "ngx-rating-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/ngx-rating-demo",
+      "sourceRoot": "projects/ngx-rating-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-rating-demo",
+            "index": "projects/ngx-rating-demo/src/index.html",
+            "main": "projects/ngx-rating-demo/src/main.ts",
+            "polyfills": "projects/ngx-rating-demo/src/polyfills.ts",
+            "tsConfig": "projects/ngx-rating-demo/tsconfig.app.json",
+            "assets": [
+              "projects/ngx-rating-demo/src/favicon.ico",
+              "projects/ngx-rating-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-rating-demo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-rating-demo/src/environments/environment.ts",
+                  "with": "projects/ngx-rating-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-rating-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "ngx-rating-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-rating-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-rating-demo/src/test.ts",
+            "polyfills": "projects/ngx-rating-demo/src/polyfills.ts",
+            "tsConfig": "projects/ngx-rating-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-rating-demo/karma.conf.js",
+            "assets": [
+              "projects/ngx-rating-demo/src/favicon.ico",
+              "projects/ngx-rating-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-rating-demo/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-rating"
+}
