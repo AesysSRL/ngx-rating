@@ -39,12 +39,12 @@ jobs:
         run: npm pack
         working-directory: ./dist/ngx-rating
         env:
-          NPM_TOKEN: ${{secret.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
         
       - name: Publish on npm
         run: npm publish --access public
         working-directory: ./dist/ngx-rating
         env:
-          NPM_TOKEN: ${{secret.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
           
         
