@@ -31,11 +31,6 @@ jobs:
 
       - name: Generate registry access file
         run: printf '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ./.npmrc
-      
-      - name: Set organization scope
-        run: npm config set scope aesys        
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN }}
 
       - name: Generate tarball
         run: npm pack
