@@ -29,11 +29,15 @@ jobs:
       - name: Install dependencies
         run: npm install
         
+      - name: Set organization scope
+        run: npm config set scope aesys
+        
       - name: Build library
         run: ng build
         
       - name: Publish on npm
         run: npm publish --access public
         env:
-          NPM_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
+          
         
