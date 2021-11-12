@@ -25,15 +25,21 @@ jobs:
 
       - name: Browse folders
         run: cd ./projects/ngx-rating
-        
+      
       - name: Install dependencies
-        run: npm install
+        run: echo N | npm ci
+        
+      #- name: Install dependencies
+      #  run: npm install
         
       - name: Set organization scope
         run: npm config set scope aesys
         
-      - name: Build library
-        run: ng build
+      - name: Run ng build with npx
+        run: npx ng build
+        
+      #- name: Build library
+      #  run: ng build
         
       - name: Publish on npm
         run: npm publish --access public
