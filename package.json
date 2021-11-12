@@ -1,5 +1,5 @@
 {
-  "name": "@aesys/ngx-rating-workspace",
+  "name": "ngx-rating-workspace",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
