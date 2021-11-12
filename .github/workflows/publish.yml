@@ -31,17 +31,20 @@ jobs:
 
       - name: Generate registry access file
         run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ./.npmrc
+      
+      - name: Set organization scope
+        run: npm config set scope aesys
 
       - name: Generate tarball
         run: npm pack
         working-directory: ./dist/ngx-rating
         env:
-          NPM_TOKEN: "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"
+          NPM_TOKEN: ${{secret.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
         
       - name: Publish on npm
         run: npm publish --access public
         working-directory: ./dist/ngx-rating
         env:
-          NPM_TOKEN: "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"
+          NPM_TOKEN: ${{secret.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
           
         
