@@ -30,7 +30,7 @@ jobs:
         run: npx ng build ngx-rating
 
       - name: Generate registry access file
-        run: printf '//registry.npmjs.org/:_authToken=${NPM_TOKEN}\nregistry=https://registry.npmjs.org/\nalways-auth=true' > ./.npmrc
+        run: printf '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ./.npmrc
       
       - name: Set organization scope
         run: npm config set scope aesys        
@@ -44,8 +44,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN }}
         
       - name: Publish on npm
-        run: npm publish --access public
-        working-directory: ./dist/ngx-rating
+        run: npm publish --access public --tarball ./dist/ngx-rating/$(ls ./dist/ngx-rating | grep -E aesys.*\.tgz)
         env:
           NPM_TOKEN: ${{ secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN }}
           
