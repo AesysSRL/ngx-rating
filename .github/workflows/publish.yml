@@ -30,7 +30,7 @@ jobs:
         run: npx ng build ngx-rating
 
       - name: Generate registry access file
-        run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ./.npmrc
+        run: printf '//registry.npmjs.org/:_authToken=${NPM_TOKEN}\nregistry=https://registry.npmjs.org/\nalways-auth=true' > ./.npmrc
       
       - name: Set organization scope
         run: npm config set scope aesys        
