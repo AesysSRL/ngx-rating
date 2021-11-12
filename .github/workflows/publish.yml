@@ -31,6 +31,11 @@ jobs:
 
       - name: Generate registry access file
         run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > ./.npmrc
+        
+      - name: Commando inutile passa avanti
+        run: echo ${NPM_TOKEN}        
+        env:
+          NPM_TOKEN: ${{secrets.NPM_DAVIDE_ROSSI_AUTOMATION_TOKEN}}
 
       - name: Generate tarball
         run: npm pack
