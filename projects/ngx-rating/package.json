@@ -18,7 +18,10 @@
     "rating",
     "Angular",
     "ngx-rating",
-    "ng"
+    "ng",
+    "ionic",
+    "bar",
+    "stars"
   ],
   "description": "Angular Library for creating RATING elements.",
   "license": "MIT"
