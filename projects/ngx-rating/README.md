@@ -1,12 +1,12 @@
 # **ngx-rating**
 
-#### The ultimate rating bar library for Angular
+#### The ultimate rating bar library for Angular & Ionic
 
 This component is built having in mind flexibility and simplicity, our goal is to let yourself having the rating bar you want with no effort.
-It is fully usable with Angular Reactive Forms, so it's easy to track user actions and modify displayed value at runtime.
 
-<!--![Preview](assets/preview.gif)-->
+It is fully usable with Angular & Ionic Reactive Forms, so it's easy to track user actions and modify displayed value at runtime.
 
+<!-- ![Preview](assets/preview.gif) -->
 
 Run this command to install:
 ```
@@ -34,6 +34,7 @@ To set up your rating bar, just give it a settings Object and an Angular FormCon
 | images        | no        | string[]   |
 | showTitle     | yes       | boolean    |
 | titlePosition | no        | string     |
+| itemMargin    | no        | string     |
 
 Here is an example of a simple Settings Object:
 
@@ -124,7 +125,8 @@ let mySettings = {
     height: 50
   },
   showTitle: true,
-  titlePosition: 'bottom'
+  titlePosition: 'bottom',
+  itemMargin: '50'
 }
 ```
 
@@ -164,13 +166,11 @@ If multiple items have the color field, the color of the other items would be ca
 
     <!-- ![Single Icon](assets/simple-icon.gif) -->
 
-
     When choosing Single Icon theme, you have to fill images field with an array containing local path of the SVG image you want to display.
 
 - multiple_icons:
 
     <!-- ![Multiple Icons](assets/multiple-icons.gif) -->
-
     
     When choosing Multiple Icons theme, you have to fill images field with an array containing local paths of SVG images you want to display.
     First one has to be the one used for selected items, second one for unselected items.  
@@ -188,6 +188,13 @@ Fill it with an object of this type:
 ```
 
 Dimensions are declared in pixels.
+
+### Item Margin
+
+You can decide how the distance between items should be.
+If the field is not in the settings Object, the distance between items would be 10px.
+If you choose 'auto', the distance between the items would be the maximum distance possible within the parent component.
+If the field is filled with a string containing an Integer, that value would be the distance in pixels between the items.
 
 ### Title Management
 

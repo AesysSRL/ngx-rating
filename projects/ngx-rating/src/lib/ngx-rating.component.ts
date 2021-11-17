@@ -22,11 +22,7 @@ import { Color, Item, ItemDetail, Settings, SettingsImage } from './model';
     .container-scale {
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-
-    .item{
-        margin-right: 10px;
+      width: 100%;
     }
     `
   ],
@@ -50,6 +46,8 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
   titlePosition: string = 'top';
   details: ItemDetail = {} as ItemDetail;
   style: string[] = [];
+  margin: number = 10;
+  autoMargin: boolean = false;
 
   showDescriptionBS = new BehaviorSubject<string>('-');
   showDescription$ = this.showDescriptionBS.asObservable();
@@ -76,6 +74,7 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
     this.showTitle = this.settings.showTitle;
     this.titlePosition = this.settings.titlePosition || 'top';
     this.details = this.settings.itemDetail;
+    this.marginDetect();
   }
 
   writeValue(item: Item): void {
@@ -113,7 +112,6 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
   }
 
   getScaleItemChange(indexSelected: number, item: Item){
-
     if (this.actualSelection !== indexSelected) {
       this.actualSelection = indexSelected;
       this.showSelection = indexSelected;
@@ -123,4 +121,17 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
     }
   }
 
+  marginDetect() {
+    if(this.settings.itemMargin) {
+      if(this.settings.itemMargin === 'auto') {
+        this.autoMargin = true;
+      }else {
+        const parsed = Number.parseInt(this.settings.itemMargin);
+        if(!Number.isNaN(parsed)) {
+          this.margin = parsed;
+          this.autoMargin = false;
+        }
+      }
+    }
+  }
 }
