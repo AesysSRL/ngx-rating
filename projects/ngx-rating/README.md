@@ -3,6 +3,7 @@
 #### The ultimate rating bar library for Angular & Ionic
 
 This component is built having in mind flexibility and simplicity, our goal is to let yourself having the rating bar you want with no effort.
+
 It is fully usable with Angular & Ionic Reactive Forms, so it's easy to track user actions and modify displayed value at runtime.
 
 <!-- ![Preview](assets/preview.gif) -->
