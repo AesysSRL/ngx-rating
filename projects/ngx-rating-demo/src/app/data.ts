@@ -37,7 +37,8 @@ export const simpleSettings = {
     height: 8
   },
   showTitle: true,
-  titlePosition: 'top'
+  titlePosition: 'top',
+  itemMargin: 'auto'
 }
 
 export const rainbowSettings = {
@@ -110,7 +111,8 @@ export const rainbowSettings = {
     height: 50
   },
   showTitle: true,
-  titlePosition: 'right'
+  titlePosition: 'right',
+  itemMargin: '60'
 }
 
 export const facesSettings = {
@@ -153,5 +155,6 @@ export const facesSettings = {
     height: 50
   },
   showTitle: true,
-  titlePosition: 'bottom'
+  titlePosition: 'bottom',
+  itemMargin: '70'
 }
