@@ -37,8 +37,7 @@ export const simpleSettings = {
     height: 8
   },
   showTitle: true,
-  titlePosition: 'top',
-  itemMargin: 'auto'
+  titlePosition: 'top'
 }
 
 export const rainbowSettings = {
