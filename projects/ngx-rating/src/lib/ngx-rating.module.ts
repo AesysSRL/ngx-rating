@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TooltipModule } from 'ng2-tooltip-directive';
 import { NgxRatingComponent } from './ngx-rating.component';
-
 
 
 @NgModule({
@@ -9,8 +9,9 @@ import { NgxRatingComponent } from './ngx-rating.component';
     NgxRatingComponent
   ],
   imports: [
-    CommonModule
-    //BrowserModule
+    CommonModule,
+    //BrowserModule,
+    TooltipModule
   ],
   exports: [
     NgxRatingComponent

@@ -43,6 +43,8 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
   images!: string[];
   styles: string[] = [];
   showTitle: boolean = false;
+  tooltip: boolean = false;
+  tooltipSettings = {};
   titlePosition: string = 'top';
   details: ItemDetail = {} as ItemDetail;
   style: string[] = [];
@@ -72,6 +74,16 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
       this.images = (<SettingsImage>this.settings).images;
     }
     this.showTitle = this.settings.showTitle;
+    if(this.settings.tooltip) {
+      this.tooltip = this.settings.tooltip;
+      this.tooltipSettings = {
+        'placement': this.titlePosition,
+        'delay': 200,
+        'theme': 'light'
+      }
+    } else {
+      this.tooltip = false;
+    }
     this.titlePosition = this.settings.titlePosition || 'top';
     this.details = this.settings.itemDetail;
     this.marginDetect();

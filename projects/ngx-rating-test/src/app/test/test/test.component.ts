@@ -46,6 +46,7 @@ export class TestComponent implements OnInit {
       height: 8
     },
     showTitle: true,
+    tooltip: true,
     titlePosition: 'top'
   }
 

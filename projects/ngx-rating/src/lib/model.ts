@@ -3,6 +3,7 @@ export interface Settings {
   theme: string,
   itemDetail: ItemDetail,
   showTitle: boolean,
+  tooltip?: boolean,
   titlePosition?: string,
   itemMargin?: string
 }

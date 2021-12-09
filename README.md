@@ -32,6 +32,7 @@ To set up your rating bar, just give it a settings Object and an Angular FormCon
 | itemDetail    | yes       | ItemDetail |
 | images        | no        | string[]   |
 | showTitle     | yes       | boolean    |
+| tooltip       | no        | boolean    |
 | titlePosition | no        | string     |
 | itemMargin    | no        | string     |
 
@@ -206,6 +207,11 @@ titlePosition options are:
 - right
 - bottom
 
+### Tooltip
+
+You can display tooltips on hover. They contain items'descriptions.
+To use them, you have to set 'showTitle' and 'tooltip' properties both on true.
+The position of the tooltip relatively to the item is taken from the 'titlePosition' property.
 
 ## How is made
 
