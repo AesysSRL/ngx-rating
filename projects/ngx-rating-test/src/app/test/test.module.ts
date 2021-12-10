@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { NgxRatingModule } from 'projects/ngx-rating/src/public-api';
+import { NgxRatingModule } from './../../../../../dist/ngx-rating/lib/ngx-rating.module';
 import { TestRoutingModule } from './test-routing.module';
 import { TestComponent } from './test/test.component';
-
 
 
 @NgModule({
@@ -10,7 +9,6 @@ import { TestComponent } from './test/test.component';
     TestComponent
   ],
   imports: [
-    //CommonModule,
     TestRoutingModule,
     NgxRatingModule
   ]

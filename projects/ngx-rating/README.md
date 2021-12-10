@@ -7,8 +7,10 @@ It is fully usable with Angular & Ionic Reactive Forms, so it's easy to track us
 
 <!-- ![Preview](assets/preview.gif) -->
 
-Run this command to install:
+Run these commands to install:
+
 ```
+npm i ng2-tooltip-directive
 npm i @aesys/ngx-rating
 ```
 
