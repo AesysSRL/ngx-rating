@@ -1,12 +1,12 @@
 {
   "name": "@aesys/ngx-rating",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "peerDependencies": {
     "@angular/common": "^12.0.5",
-    "@angular/core": "^12.0.5"
+    "@angular/core": "^12.0.5",
+    "ng2-tooltip-directive": "^2.10.3"
   },
   "dependencies": {
-    "ng2-tooltip-directive": "^2.10.3",
     "tslib": "^2.1.0"
   },
   "repository": {
