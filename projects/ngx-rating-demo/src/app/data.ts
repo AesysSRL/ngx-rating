@@ -110,6 +110,7 @@ export const rainbowSettings = {
     height: 50
   },
   showTitle: true,
+  tooltip: true,
   titlePosition: 'right',
   itemMargin: '60'
 }

@@ -50,6 +50,7 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
   style: string[] = [];
   margin: number = 10;
   autoMargin: boolean = false;
+  disabled: boolean = false;
 
   showDescriptionBS = new BehaviorSubject<string>('-');
   showDescription$ = this.showDescriptionBS.asObservable();
@@ -113,9 +114,15 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
     this.onTouch = fn;
   }
 
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
   mouseOver(selectedIdx: number, item: Item){
-    this.showDescriptionBS.next(item.description);
-    this.showSelection = selectedIdx;
+    if(!this.disabled) {
+      this.showDescriptionBS.next(item.description);
+      this.showSelection = selectedIdx;
+    }
   }
 
   mouseLeave(){
@@ -124,7 +131,7 @@ export class NgxRatingComponent implements OnInit, ControlValueAccessor {
   }
 
   getScaleItemChange(indexSelected: number, item: Item){
-    if (this.actualSelection !== indexSelected) {
+    if (this.actualSelection !== indexSelected && !this.disabled) {
       this.actualSelection = indexSelected;
       this.showSelection = indexSelected;
       this.actualDescription = item.description;

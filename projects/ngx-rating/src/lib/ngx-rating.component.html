@@ -18,7 +18,7 @@
             'justify-content': autoMargin ? 'space-between' : 'center'
         }">
         <ng-container *ngFor="let item of items; let idx = index">
-          <div *ngIf="tooltip; else noTooltip" tooltip={{item.description}} [options]="tooltipSettings" >
+          <div *ngIf="(tooltip && (!disabled || (disabled && actualSelection === idx))); else noTooltip" tooltip={{item.description}} [options]="tooltipSettings" >
             <div [ngSwitch]="theme">
               <div
                   *ngSwitchCase="'squares'"
