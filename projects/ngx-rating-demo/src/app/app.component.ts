@@ -31,6 +31,7 @@ export class AppComponent {
   constructor() {}
 
   ngOnInit(): void {
+    this.rainbowControl.disable();
     this.simplecontrol.valueChanges.subscribe(x => console.log('value simple', x));
     this.rainbowControl.valueChanges.subscribe(x => console.log('value rainbow', x));
     this.facesControl.valueChanges.subscribe(x => console.log('faces changes', x))

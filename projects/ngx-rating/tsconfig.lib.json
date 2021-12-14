@@ -8,6 +8,9 @@
     "declarationMap": true,
     "inlineSources": true,
     "types": [],
+    "paths": {
+      "ng2-tooltip-directive": ["./node_modules/ng2-tooltip-directive/public-api.d.ts"]
+    },
     "lib": [
       "dom",
       "es2018"
